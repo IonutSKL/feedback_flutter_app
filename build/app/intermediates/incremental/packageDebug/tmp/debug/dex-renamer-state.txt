@@ -1,4 +1,4 @@
-#Wed Sep 16 22:11:10 CEST 2020
+#Tue Sep 22 22:45:39 CEST 2020
 base.0=C\:\\flutterProjects\\real_news_romania\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
