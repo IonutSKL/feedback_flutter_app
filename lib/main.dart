@@ -15,18 +15,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
 
-  void _answerQuestion() {
-    setState(() {
-      _questionIndex = _questionIndex + 1;
-    });
-    print(_questionIndex);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var questions = [
+  final questions = const [
       {
         'questionText': 'Cum a fost mâncarea azi?',
         'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
@@ -40,6 +30,26 @@ class _MyAppState extends State<MyApp> {
         'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
       },
     ];
+
+  var _questionIndex = 0;
+
+  void _answerQuestion() {
+    //var aBool = true;
+    //aBool = false;
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+    print(_questionIndex);
+
+    if (_questionIndex < questions.length){
+      print('here');
+
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
