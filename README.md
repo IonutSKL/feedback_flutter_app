@@ -1,9 +1,9 @@
-# real_news_romania
+# feedback_flutter_app
 
-The new way to stay informed with only real news about Romania
+The feedback app!
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-# real_news_romania
+# feedback_flutter_app
