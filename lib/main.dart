@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,21 +15,20 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  final questions = const [
-      {
-        'questionText': 'Cum a fost mâncarea azi?',
-        'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
-      },
-      {
-        'questionText': 'Cum a fost servirea azi?',
-        'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
-      },
-      {
-        'questionText': 'Cum a fost x azi?',
-        'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
-      },
-    ];
+  final _questions = const [
+    {
+      'questionText': 'Cum a fost mâncarea azi?',
+      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+    },
+    {
+      'questionText': 'Cum a fost servirea azi?',
+      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+    },
+    {
+      'questionText': 'Cum a fost x azi?',
+      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+    },
+  ];
 
   var _questionIndex = 0;
 
@@ -41,33 +40,28 @@ class _MyAppState extends State<MyApp> {
     });
     print(_questionIndex);
 
-    if (_questionIndex < questions.length){
-      print('here');
-
+    if (_questionIndex < _questions.length) {
+      print('We have more questions!');
+    } else {
+      print('No more questions!');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          title: Text('Feedback App'),
-        ),
-        body: Column(
-          children: [
-            Question(
-              questions[_questionIndex]['questionText'],
-            ),
-            ...(questions[_questionIndex]['answers'] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList()
-          ],
-        ),
-      ),
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            title: Text('Feedback App'),
+          ),
+          body: _questionIndex < _questions.length
+              ? Quiz(
+                  answerQuestion: _answerQuestion,
+                  questionIndex: _questionIndex,
+                  questions: _questions,
+                )
+              : Result()),
     );
   }
 }
