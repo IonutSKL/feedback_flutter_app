@@ -18,23 +18,42 @@ class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
       'questionText': 'Cum a fost mâncarea azi?',
-      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+      'answers': [
+        {'text': 'Foarte bun', 'score': 10},
+        {'text': 'Bun', 'score': 6},
+        {'text': 'Slab', 'score': 3},
+        {'text': 'Foarte slab', 'score': 1},
+      ]
     },
     {
       'questionText': 'Cum a fost servirea azi?',
-      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+      'answers': [
+        {'text': 'Foarte bun', 'score': 10},
+        {'text': 'Bun', 'score': 6},
+        {'text': 'Slab', 'score': 3},
+        {'text': 'Foarte slab', 'score': 1},
+      ]
     },
     {
-      'questionText': 'Cum a fost x azi?',
-      'answers': ['Foarte bun', 'Bun', 'Slab', 'Foarte slab']
+      'questionText': 'Cum a fost nivelul de curatenie azi?',
+      'answers': [
+        {'text': 'Foarte bun', 'score': 10},
+        {'text': 'Bun', 'score': 6},
+        {'text': 'Slab', 'score': 3},
+        {'text': 'Foarte slab', 'score': 1},
+      ]
     },
   ];
 
   var _questionIndex = 0;
+  var _totalscore = 0;
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     //var aBool = true;
     //aBool = false;
+
+    _totalscore += score;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -61,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionIndex,
                   questions: _questions,
                 )
-              : Result()),
+              : Result(_totalscore)),
     );
   }
 }
