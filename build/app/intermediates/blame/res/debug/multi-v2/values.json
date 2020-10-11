@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\flutterProjects\\real_news_romania\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\flutterProjects\\feedback_app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\flutterProjects\\real_news_romania\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\flutterProjects\\feedback_app\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

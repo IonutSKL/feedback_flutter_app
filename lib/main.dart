@@ -48,6 +48,13 @@ class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var _totalscore = 0;
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalscore = 0;
+    });
+  }
+
   void _answerQuestion(int score) {
     //var aBool = true;
     //aBool = false;
@@ -69,18 +76,19 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.black,
-            title: Text('Feedback App'),
-          ),
-          body: _questionIndex < _questions.length
-              ? Quiz(
-                  answerQuestion: _answerQuestion,
-                  questionIndex: _questionIndex,
-                  questions: _questions,
-                )
-              : Result(_totalscore)),
+        home: Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('Feedback App'),
+      ),
+      body: _questionIndex < _questions.length
+          ? Quiz(
+              answerQuestion: _answerQuestion,
+              questionIndex: _questionIndex,
+              questions: _questions,
+            )
+          : Result(_totalscore, _resetQuiz),
+      )
     );
   }
 }
